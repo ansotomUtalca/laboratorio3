@@ -28,10 +28,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Big title here'),
     );
   }
 }
@@ -66,6 +66,20 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  void _decreaseCounter() {
+    setState(() {
+      _counter--;
+    });
+    //decreases counter and calls build method.
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+    //resets counter back to 0 and calls build method.
   }
 
   @override
@@ -118,8 +132,38 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.access_alarm),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+      persistentFooterButtons: [
+        FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add)),
+        FloatingActionButton(
+            onPressed: _decreaseCounter,
+            tooltip: 'Decrease',
+            child: const Icon(Icons.remove)),
+        FloatingActionButton(
+            onPressed: _resetCounter,
+            tooltip: 'Reset',
+            child: const Icon(Icons.replay_outlined))
+      ],
     );
   }
+
+  /*final Widget _addToCounter = FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add));
+
+  Widget _takeFromCounter = FloatingActionButton(
+      onPressed: _decreaseCounter,
+      tooltip: 'Decrease',
+      child: const Icon(Icons.remove));
+
+  Widget _resetTheCoutner = FloatingActionButton(
+      onPressed: _resetCounter,
+      tooltip: 'Reset',
+      child: const Icon(Icons.replay_outlined));
+      */
 }
