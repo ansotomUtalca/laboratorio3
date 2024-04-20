@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Has apretado el boton esta cantidad de veces:',
             ),
             Text(
               '$_counter',
@@ -130,9 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.access_alarm),
+        onPressed: _resetCounter,
+        tooltip: 'Reset',
+        child: const Icon(Icons.replay_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
       persistentFooterButtons: [
         FloatingActionButton(
@@ -143,10 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: _decreaseCounter,
             tooltip: 'Decrease',
             child: const Icon(Icons.remove)),
-        FloatingActionButton(
-            onPressed: _resetCounter,
-            tooltip: 'Reset',
-            child: const Icon(Icons.replay_outlined))
       ],
     );
   }
