@@ -146,20 +146,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
   }
-
-  /*final Widget _addToCounter = FloatingActionButton(
-      onPressed: _incrementCounter,
-      tooltip: 'Increment',
-      child: const Icon(Icons.add));
-
-  Widget _takeFromCounter = FloatingActionButton(
-      onPressed: _decreaseCounter,
-      tooltip: 'Decrease',
-      child: const Icon(Icons.remove));
-
-  Widget _resetTheCoutner = FloatingActionButton(
-      onPressed: _resetCounter,
-      tooltip: 'Reset',
-      child: const Icon(Icons.replay_outlined));
-      */
 }
