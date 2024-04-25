@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:laboratorio3/Pages/home.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+const String svgString = '''
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 166 202">
+  <defs>
+    <linearGradient id="triangleGradient">
+      <stop offset="20%" stop-color="#000000" stop-opacity=".55" />
+      <stop offset="85%" stop-color="#616161" stop-opacity=".01" />
+    </linearGradient>
+    <linearGradient id="rectangleGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="20%" stop-color="#000000" stop-opacity=".15" />
+      <stop offset="85%" stop-color="#616161" stop-opacity=".01" />
+    </linearGradient>
+  </defs>
+  <path fill="#42A5F5" fill-opacity=".8" d="M37.7 128.9 9.8 101 100.4 10.4 156.2 10.4" />
+  <path fill="#42A5F5" fill-opacity=".8" d="M156.2 94 100.4 94 79.5 114.9 107.4 142.8" />
+  <path fill="#0D47A1" d="M79.5 170.7 100.4 191.6 156.2 191.6 156.2 191.6 107.4 142.8" />
+  <g transform="matrix(0.7071, -0.7071, 0.7071, 0.7071, -77.667, 98.057)">
+    <rect width="39.4" height="39.4" x="59.8" y="123.1" fill="#42A5F5" />
+    <rect width="39.4" height="5.5" x="59.8" y="162.5" fill="url(#rectangleGradient)" />
+  </g>
+  <path d="M79.5 170.7 120.9 156.4 107.4 142.8" fill="url(#triangleGradient)" />
+</svg>
+''';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -28,122 +52,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
+        fontFamily: 'osaka-re',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Big title here'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  void _decreaseCounter() {
-    setState(() {
-      _counter--;
-    });
-    //decreases counter and calls build method.
-  }
-
-  void _resetCounter() {
-    setState(() {
-      _counter = 0;
-    });
-    //resets counter back to 0 and calls build method.
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Has apretado el boton esta cantidad de veces:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _resetCounter,
-        tooltip: 'Reset',
-        child: const Icon(Icons.replay_outlined),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-      persistentFooterButtons: [
-        FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add)),
-        FloatingActionButton(
-            onPressed: _decreaseCounter,
-            tooltip: 'Decrease',
-            child: const Icon(Icons.remove)),
-      ],
     );
   }
 }
