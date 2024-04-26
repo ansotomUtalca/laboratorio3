@@ -68,6 +68,18 @@ class _MyHomePageState extends State<MyHomePage> {
       return svgPause;
   }
 
+  void _goDetail() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Detail(),
+      ),
+    );
+  }
+
+  void _goBack() {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //onPressed: _resetCounter, tooltip: 'Reset', child: svgIcon),
       persistentFooterButtons: [
         FloatingActionButton(
-            onPressed: _incrementCounter,
+            onPressed: _goDetail,
             tooltip: 'Increment',
             child: const Icon(Icons.add)),
         FloatingActionButton(
@@ -116,5 +128,28 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.remove)),
       ],
     );
+  }
+}
+
+class Detail extends StatelessWidget {
+  const Detail({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(backgroundColor: Colors.blueGrey),
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('Detalle de la aplicacion.'),
+            SizedBox(height: 40),
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: svgIcon),
+          ],
+        )));
   }
 }
