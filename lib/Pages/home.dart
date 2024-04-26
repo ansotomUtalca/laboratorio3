@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 const String assetname = 'lib/Icons/agregar-usuario.svg';
-Widget svgIcon = SvgPicture.asset(assetname, semanticsLabel: 'Acme Logo');
+Widget svgIcon = SvgPicture.asset(assetname, semanticsLabel: 'Logo');
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
