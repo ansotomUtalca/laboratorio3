@@ -67,6 +67,9 @@ flutter:
   assets:
     - lib/Icons/agregar-usuario.svg
     - lib/Icons/usuarios-alt.svg
+    - lib/Icons/victoria.svg
+    - lib/Icons/derrota.svg
+    - lib/Icons/pause.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
