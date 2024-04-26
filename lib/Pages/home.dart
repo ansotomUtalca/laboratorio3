@@ -76,18 +76,31 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _checkIconVictory(),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+        child: Card(
+          clipBehavior: Clip.hardEdge,
+          child: InkWell(
+            splashColor: Colors.blue.withAlpha(30),
+            onTap: () {
+              debugPrint('Card tapped.');
+            },
+            child: SizedBox(
+              width: 300,
+              height: 100,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _checkIconVictory(),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  Text(
+                    _checkVictory(),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              _checkVictory(),
-            ),
-          ],
+          ),
         ),
       ),
       //floatingActionButton: FloatingActionButton(
