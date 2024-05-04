@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:laboratorio3/Pages/detail.dart';
+import 'package:laboratorio3/Pages/listdetail.dart';
 
 const String assetname = 'lib/Icons/agregar-usuario.svg';
 Widget svgIcon =
@@ -76,6 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _goList() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const ListDetail(),
+      ),
+    );
+  }
+
   void _goBack() {
     Navigator.pop(context);
   }
@@ -118,38 +128,15 @@ class _MyHomePageState extends State<MyHomePage> {
       //floatingActionButton: FloatingActionButton(
       //onPressed: _resetCounter, tooltip: 'Reset', child: svgIcon),
       persistentFooterButtons: [
-        FloatingActionButton(
-            onPressed: _goDetail,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add)),
-        FloatingActionButton(
-            onPressed: _decreaseCounter,
-            tooltip: 'Decrease',
-            child: const Icon(Icons.remove)),
+        TextButton(
+          onPressed: _goDetail,
+          child: const Text("Detail"),
+        ),
+        TextButton(
+          onPressed: _goList,
+          child: const Text("List)"),
+        ),
       ],
     );
-  }
-}
-
-class Detail extends StatelessWidget {
-  const Detail({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(backgroundColor: Colors.blueGrey),
-        body: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Detalle de la aplicacion.'),
-            SizedBox(height: 40),
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: svgIcon),
-          ],
-        )));
   }
 }
