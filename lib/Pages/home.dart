@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laboratorio3/Pages/detail.dart';
 import 'package:laboratorio3/Pages/listdetail.dart';
+import 'package:laboratorio3/Pages/sensors.dart';
 
 const String assetname = 'lib/Icons/agregar-usuario.svg';
 Widget svgIcon =
@@ -82,6 +83,22 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const ListDetail(),
+      ),
+    );
+  }
+
+  void _goSensors() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Sensors(),
+      ),
+    );
+  }
+
+  void _goGestures() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Gestures(),
       ),
     );
   }
