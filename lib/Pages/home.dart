@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laboratorio3/Pages/detail.dart';
+import 'package:laboratorio3/Pages/gestures.dart';
 import 'package:laboratorio3/Pages/listdetail.dart';
 import 'package:laboratorio3/Pages/sensors.dart';
 
@@ -158,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
+      drawer: Drawer(
         child: Card(
           clipBehavior: Clip.hardEdge,
           child: InkWell(
@@ -180,24 +181,55 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     _checkVictory(),
                   ),
+                  ElevatedButton(
+                    onPressed: _goDetail,
+                    style:
+                        ButtonStyle(fixedSize: buttonSize, shape: buttonBorder),
+                    child: const Text(
+                      'Detalle',
+                      textScaler: TextScaler.linear(1.5),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: _goList,
+                    style:
+                        ButtonStyle(fixedSize: buttonSize, shape: buttonBorder),
+                    child: const Text(
+                      'Lista',
+                      textScaler: TextScaler.linear(1.5),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: _goGestures,
+                    style:
+                        ButtonStyle(fixedSize: buttonSize, shape: buttonBorder),
+                    child: const Text(
+                      'Gestos',
+                      textScaler: TextScaler.linear(1.5),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: _goSensors,
+                    style:
+                        ButtonStyle(fixedSize: buttonSize, shape: buttonBorder),
+                    child: const Text(
+                      'Sensores',
+                      textScaler: TextScaler.linear(1.5),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ),
       ),
-      //floatingActionButton: FloatingActionButton(
-      //onPressed: _resetCounter, tooltip: 'Reset', child: svgIcon),
-      persistentFooterButtons: [
-        TextButton(
-          onPressed: _goDetail,
-          child: const Text("Detail"),
-        ),
-        TextButton(
-          onPressed: _goList,
-          child: const Text("List)"),
-        ),
-      ],
     );
   }
+
+  MaterialStateProperty<Size> buttonSize =
+      const MaterialStatePropertyAll(Size(400, 80));
+
+  MaterialStateProperty<RoundedRectangleBorder> buttonBorder =
+      MaterialStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)));
 }

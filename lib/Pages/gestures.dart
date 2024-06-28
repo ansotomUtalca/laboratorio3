@@ -11,19 +11,10 @@ class Gestures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(backgroundColor: Colors.blueGrey),
-        body: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Detalle de la aplicacion.'),
-            const SizedBox(height: 40),
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: svgIcon),
-          ],
-        )));
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text("Gestos"),
+        ),
+        body: Center());
   }
 }
