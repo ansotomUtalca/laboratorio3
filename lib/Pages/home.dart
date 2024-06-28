@@ -26,11 +26,54 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() {
+    print('create state');
+    return _MyHomePageState();
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  _MyHomePageState() {
+    print('constructor, mounted: $mounted');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    print('initState, mounted: $mounted');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('didChangeDependencies, mounted: $mounted');
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    print('setState');
+    super.setState(fn);
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print('deactivate, mounted: $mounted');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose,mounted: $mounted');
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    print('reassemble, mounted: $mounted');
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -109,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("build() called");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
